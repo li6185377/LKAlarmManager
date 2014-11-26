@@ -16,8 +16,12 @@ typedef NS_ENUM(NSUInteger, LKAlarmRepeatType) {
     LKAlarmRepeatTypeWeek = NSCalendarUnitWeekday,
     ///工作日重复
     LKAlarmRepeatTypeWork = NSCalendarUnitWeekdayOrdinal
+    ///如有其他需求 咕~~(╯﹏╰)b。。。 自己去改改代码吧
 };
 
+/**
+ *  @brief  你可以继承此对象 然后增添属性来保存需要的数据
+ */
 @interface LKAlarmEvent : NSObject
 ///LK中的事件id 自增 只有保存完数据库 才会有值
 @property (assign,readonly,nonatomic) NSInteger eventId;
@@ -31,14 +35,17 @@ typedef NS_ENUM(NSUInteger, LKAlarmRepeatType) {
 @property (strong,nonatomic) NSDate *endDate;
 ///开始时间前 几秒提醒
 @property NSInteger beforeTime;
+
 ///地区
 @property(strong,nonatomic) NSString *location;
 ///时区
-@property(strong,nonatomic) NSTimeZone *timeZone;
+@property(strong,nonatomic) NSString *timeZoneName;
 
 ///重复模式
 @property LKAlarmRepeatType repeatType;
 
+///您可能需要用来保存什么值 比如某任务的id
+@property NSInteger eventTag;
 
 ///只要加入本地推送 可设为YES 就不会添加到日历当中
 @property(nonatomic) BOOL isNeedJoinLocalNotify;
@@ -49,8 +56,8 @@ typedef NS_ENUM(NSUInteger, LKAlarmRepeatType) {
 ///是否加入到日历当中
 @property(assign,readonly,nonatomic) BOOL isJoinedCalendar;
 ///EKEvent eventIdentifier 加入到日历中的唯一标识码
-@property (strong,readonly,nonatomic) NSString *eventIdentifier;
+@property(strong,readonly,nonatomic) NSString *eventIdentifier;
 ///日历中显示的URL 为了点击跳转到应用当中
-@property(strong,readonly,nonatomic)NSString* URL;
+@property(strong,readonly,nonatomic) NSString* URL;
 
 @end

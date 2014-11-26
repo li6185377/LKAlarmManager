@@ -41,7 +41,7 @@
     ///60秒后提醒我
     event.startDate = [NSDate dateWithTimeIntervalSinceNow:60];
     
-    ///会参试加入日历  如果日历没权限 会加入到本地提醒中
+    ///会先尝试加入日历  如果日历没权限 会加入到本地提醒中
     [[LKAlarmMamager shareManager] addAlarmEvent:event callback:^(LKAlarmEvent *alarmEvent) {
 
         dispatch_async(dispatch_get_main_queue(), ^{

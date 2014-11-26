@@ -26,6 +26,10 @@
 {
     return @"eventId";
 }
++(BOOL)isContainParent
+{
+    return YES;
+}
 +(LKDBHelper *)getUsingLKDBHelper
 {
     static LKDBHelper* helper;

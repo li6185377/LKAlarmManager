@@ -235,7 +235,10 @@
     }
     
     ekEvent.location = event.location;
-    ekEvent.timeZone = event.timeZone;
+    if(event.timeZoneName.length > 0)
+    {
+        ekEvent.timeZone = [NSTimeZone timeZoneWithName:event.timeZoneName];
+    }
     
     [ekEvent setCalendar:[eventStore defaultCalendarForNewEvents]];
     
