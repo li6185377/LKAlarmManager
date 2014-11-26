@@ -1,0 +1,383 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0B04F93AC9B8D94D71483290 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD1152B5740EF2D5E9999C90 /* libPods.a */; };
+		3688A9E11A2410D50081DD0E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3688A9E01A2410D50081DD0E /* main.m */; };
+		3688A9E41A2410D50081DD0E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3688A9E31A2410D50081DD0E /* AppDelegate.m */; };
+		3688A9E71A2410D50081DD0E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3688A9E61A2410D50081DD0E /* ViewController.m */; };
+		3688A9EA1A2410D50081DD0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3688A9E81A2410D50081DD0E /* Main.storyboard */; };
+		3688A9EC1A2410D50081DD0E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3688A9EB1A2410D50081DD0E /* Images.xcassets */; };
+		3688A9EF1A2410D50081DD0E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3688A9ED1A2410D50081DD0E /* LaunchScreen.xib */; };
+		3688AA071A2412E80081DD0E /* LKAlarmMamager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3688AA061A2412E80081DD0E /* LKAlarmMamager.m */; };
+		3688AA0A1A2413230081DD0E /* LKAlarmEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3688AA091A2413230081DD0E /* LKAlarmEvent.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3688A9DB1A2410D50081DD0E /* LKAlarmManagerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LKAlarmManagerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3688A9DF1A2410D50081DD0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3688A9E01A2410D50081DD0E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3688A9E21A2410D50081DD0E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3688A9E31A2410D50081DD0E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3688A9E51A2410D50081DD0E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		3688A9E61A2410D50081DD0E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3688A9E91A2410D50081DD0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3688A9EB1A2410D50081DD0E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3688A9EE1A2410D50081DD0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		3688AA051A2412E80081DD0E /* LKAlarmMamager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKAlarmMamager.h; sourceTree = "<group>"; };
+		3688AA061A2412E80081DD0E /* LKAlarmMamager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKAlarmMamager.m; sourceTree = "<group>"; };
+		3688AA081A2413230081DD0E /* LKAlarmEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKAlarmEvent.h; sourceTree = "<group>"; };
+		3688AA091A2413230081DD0E /* LKAlarmEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKAlarmEvent.m; sourceTree = "<group>"; };
+		99A82A9F35002757BA12FABF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		9F65E58B8BD9AEF31187416F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		AD1152B5740EF2D5E9999C90 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3688A9D81A2410D50081DD0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B04F93AC9B8D94D71483290 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3688A9D21A2410D50081DD0E = {
+			isa = PBXGroup;
+			children = (
+				3688AA041A2412C50081DD0E /* LKAlarmManager */,
+				3688A9DD1A2410D50081DD0E /* LKAlarmManagerDemo */,
+				3688A9DC1A2410D50081DD0E /* Products */,
+				604B5B457CA374BFE42CF0EB /* Pods */,
+				C9FCACAC450DE3596D6C8CDC /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3688A9DC1A2410D50081DD0E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3688A9DB1A2410D50081DD0E /* LKAlarmManagerDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3688A9DD1A2410D50081DD0E /* LKAlarmManagerDemo */ = {
+			isa = PBXGroup;
+			children = (
+				3688A9E21A2410D50081DD0E /* AppDelegate.h */,
+				3688A9E31A2410D50081DD0E /* AppDelegate.m */,
+				3688A9E51A2410D50081DD0E /* ViewController.h */,
+				3688A9E61A2410D50081DD0E /* ViewController.m */,
+				3688A9E81A2410D50081DD0E /* Main.storyboard */,
+				3688A9EB1A2410D50081DD0E /* Images.xcassets */,
+				3688A9ED1A2410D50081DD0E /* LaunchScreen.xib */,
+				3688A9DE1A2410D50081DD0E /* Supporting Files */,
+			);
+			path = LKAlarmManagerDemo;
+			sourceTree = "<group>";
+		};
+		3688A9DE1A2410D50081DD0E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3688A9DF1A2410D50081DD0E /* Info.plist */,
+				3688A9E01A2410D50081DD0E /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3688AA041A2412C50081DD0E /* LKAlarmManager */ = {
+			isa = PBXGroup;
+			children = (
+				3688AA051A2412E80081DD0E /* LKAlarmMamager.h */,
+				3688AA061A2412E80081DD0E /* LKAlarmMamager.m */,
+				3688AA081A2413230081DD0E /* LKAlarmEvent.h */,
+				3688AA091A2413230081DD0E /* LKAlarmEvent.m */,
+			);
+			path = LKAlarmManager;
+			sourceTree = "<group>";
+		};
+		604B5B457CA374BFE42CF0EB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				99A82A9F35002757BA12FABF /* Pods.debug.xcconfig */,
+				9F65E58B8BD9AEF31187416F /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C9FCACAC450DE3596D6C8CDC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AD1152B5740EF2D5E9999C90 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3688A9DA1A2410D50081DD0E /* LKAlarmManagerDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3688A9FE1A2410D50081DD0E /* Build configuration list for PBXNativeTarget "LKAlarmManagerDemo" */;
+			buildPhases = (
+				F2A364B460EEBED48C1AEFF7 /* Check Pods Manifest.lock */,
+				3688A9D71A2410D50081DD0E /* Sources */,
+				3688A9D81A2410D50081DD0E /* Frameworks */,
+				3688A9D91A2410D50081DD0E /* Resources */,
+				CFC1BFD86339A3763368C008 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LKAlarmManagerDemo;
+			productName = LKAlarmManagerDemo;
+			productReference = 3688A9DB1A2410D50081DD0E /* LKAlarmManagerDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3688A9D31A2410D50081DD0E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Jianghuai Li";
+				TargetAttributes = {
+					3688A9DA1A2410D50081DD0E = {
+						CreatedOnToolsVersion = 6.1;
+					};
+				};
+			};
+			buildConfigurationList = 3688A9D61A2410D50081DD0E /* Build configuration list for PBXProject "LKAlarmManagerDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3688A9D21A2410D50081DD0E;
+			productRefGroup = 3688A9DC1A2410D50081DD0E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3688A9DA1A2410D50081DD0E /* LKAlarmManagerDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3688A9D91A2410D50081DD0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3688A9EA1A2410D50081DD0E /* Main.storyboard in Resources */,
+				3688A9EF1A2410D50081DD0E /* LaunchScreen.xib in Resources */,
+				3688A9EC1A2410D50081DD0E /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CFC1BFD86339A3763368C008 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2A364B460EEBED48C1AEFF7 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3688A9D71A2410D50081DD0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3688AA0A1A2413230081DD0E /* LKAlarmEvent.m in Sources */,
+				3688A9E71A2410D50081DD0E /* ViewController.m in Sources */,
+				3688AA071A2412E80081DD0E /* LKAlarmMamager.m in Sources */,
+				3688A9E41A2410D50081DD0E /* AppDelegate.m in Sources */,
+				3688A9E11A2410D50081DD0E /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3688A9E81A2410D50081DD0E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3688A9E91A2410D50081DD0E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3688A9ED1A2410D50081DD0E /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3688A9EE1A2410D50081DD0E /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3688A9FC1A2410D50081DD0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3688A9FD1A2410D50081DD0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3688A9FF1A2410D50081DD0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99A82A9F35002757BA12FABF /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = LKAlarmManagerDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3688AA001A2410D50081DD0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F65E58B8BD9AEF31187416F /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = LKAlarmManagerDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3688A9D61A2410D50081DD0E /* Build configuration list for PBXProject "LKAlarmManagerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3688A9FC1A2410D50081DD0E /* Debug */,
+				3688A9FD1A2410D50081DD0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3688A9FE1A2410D50081DD0E /* Build configuration list for PBXNativeTarget "LKAlarmManagerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3688A9FF1A2410D50081DD0E /* Debug */,
+				3688AA001A2410D50081DD0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3688A9D31A2410D50081DD0E /* Project object */;
+}
