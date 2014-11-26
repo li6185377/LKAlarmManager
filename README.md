@@ -4,6 +4,8 @@ LKAlarmManager
 方便快捷的把 “您的提醒” 加入到 日历或者本地通知中 <br>
 会自动处理本地通知超过64个的情况
 
+QQ群号 113767274  有什么问题或者改进的地方大家一起讨论
+
 使用例子
 1、 把下面三个 UIApplication回调, 传给LKAlarmManager
 ```objective-c
