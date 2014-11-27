@@ -5,6 +5,7 @@ LKAlarmManager
 会自动处理本地通知超过64个的情况
 
 QQ群号 113767274  有什么问题或者改进的地方大家一起讨论
+
 ------------------------------------
 Requirements
 ====================================
@@ -23,7 +24,7 @@ pod 'LKAlarmManager', :head
 
 ##Basic usage
 
-1. 把下面三个 UIApplication回调, 传给LKAlarmManager
+1、把下面三个 UIApplication回调, 传给LKAlarmManager
 ```objective-c
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
 {
@@ -43,7 +44,7 @@ pod 'LKAlarmManager', :head
 }
 ```
 
-2. 加添提醒到 LKAlarmManager 中.
+2、 加添提醒到 LKAlarmManager 中.
 ```objective-c
     LKAlarmEvent* event = [LKAlarmEvent new];
     event.title = @"参试加入日历事件中";
@@ -79,7 +80,7 @@ pod 'LKAlarmManager', :head
         
     }];
 ```
-3. 注册 LKAlarmManager 回调，接收到提醒的时候 做你想做的事
+3、 注册 LKAlarmManager 回调，接收到提醒的时候 做你想做的事
 ```objective-c
     ///regist delegate
     [[LKAlarmMamager shareManager] registDelegateWithObject:self];
