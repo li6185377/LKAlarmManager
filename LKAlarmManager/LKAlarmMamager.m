@@ -265,7 +265,7 @@
     event.isNeedJoinLocalNotify = YES;
     
     if ([UIDevice currentDevice].systemVersion.floatValue >= 8)
-    {
+    {        
         [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
     }
     
@@ -345,10 +345,43 @@
     obj.delegate = delegate;
     [_registDelegates addObject:obj];
 }
+
+
+-(NSArray *)allEvents
+{
+    return [LKAlarmEvent searchWithWhere:nil orderBy:@"eventId desc" offset:0 count:0];
+}
+-(NSArray *)allNoReceiveEvents
+{
+    NSMutableArray* events = [LKAlarmEvent searchWithWhere:[NSString stringWithFormat:@"startDate > '%@'",[LKDBUtils stringWithDate:[NSDate date]]] orderBy:@"eventId" offset:0 count:0];
+    return events;
+}
+-(void)deleteAlarmEvent:(LKAlarmEvent *)event
+{
+    if(event.isJoinedCalendar)
+    {
+        EKEventStore *ekEventStore = [[EKEventStore alloc] init];
+        EKEvent* ekEvent = [ekEventStore eventWithIdentifier:event.eventIdentifier];
+        [ekEventStore removeEvent:ekEvent span:EKSpanThisEvent error:nil];
+    }
+    if(event.isJoinedLocalNotify)
+    {
+        NSArray* localNotifys = [[UIApplication sharedApplication] scheduledLocalNotifications];
+        for (UILocalNotification* local in localNotifys)
+        {
+            NSInteger eventId = [local.userInfo[@"lk_alarm_id"] integerValue];
+            if(eventId > 0 && eventId == event.eventId)
+            {
+                [[UIApplication sharedApplication] cancelLocalNotification:local];
+                break;
+            }
+        }
+    }
+    [event deleteToDB];
+}
 -(void)deleteNoReceiveAlarmEvents
 {
-    NSMutableArray* events = [LKAlarmEvent searchWithWhere:[NSString stringWithFormat:@"startDate>'%@'",[LKDBUtils stringWithDate:[NSDate date]]] orderBy:nil offset:0 count:0];
-    
+    NSArray* events = [self allNoReceiveEvents];
     EKEventStore *ekEventStore = nil;
     for (int i=0; i < events.count; i++)
     {

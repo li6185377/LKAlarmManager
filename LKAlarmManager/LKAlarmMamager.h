@@ -61,6 +61,16 @@
 -(void)addAlarmEvent:(LKAlarmEvent*)event;
 -(void)addAlarmEvent:(LKAlarmEvent*)event callback:(void(^)(LKAlarmEvent* alarmEvent))callback;
 
+///删除通知事件 同时会删除日历或本地通知 内 对应的提醒
+-(void)deleteAlarmEvent:(LKAlarmEvent*)event;
+
 ///删除所有没有触发的事件
 -(void)deleteNoReceiveAlarmEvents;
+
+
+///所有的通知事件
+-(NSArray*)allEvents;
+
+///还没有到提醒时间的通知事件
+-(NSArray*)allNoReceiveEvents;
 @end
