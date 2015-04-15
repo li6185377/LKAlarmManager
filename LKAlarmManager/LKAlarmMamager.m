@@ -17,6 +17,7 @@
 @interface LKAlarmMamager()
 @property(nonatomic,strong)NSMutableArray* registDelegates;
 @property(strong,nonatomic)NSLock* checkLocalNotifyLock;
+@property BOOL isExecuteCheckNotifyCallback;
 @end
 
 @implementation LKAlarmMamager
@@ -45,8 +46,18 @@
         
         self.checkLocalNotifyLock = [[NSLock alloc]init];
         [self checkLocalNotifyEvent];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidBecomeActive) name:UIApplicationDidBecomeActiveNotification object:nil];
     }
     return self;
+}
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+-(void)applicationDidBecomeActive
+{
+    [self checkNeedCallbackNotifyEvent];
 }
 -(void)registDelegateWithClass:(Class<LKAlarmMamagerDelegate>)clazz
 {
@@ -94,7 +105,11 @@
 
 -(void)checkNeedCallbackNotifyEvent
 {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_global_queue(0, 0), ^{
+    if(_isExecuteCheckNotifyCallback)
+        return;
+    
+    _isExecuteCheckNotifyCallback = YES;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_global_queue(0, 0), ^{
         [self checkNeedCallbackNotifyEvent_async];
     });
 }
@@ -106,6 +121,7 @@
     {
         [self sendReceveEvent:event];
     }
+    _isExecuteCheckNotifyCallback = NO;
 }
 
 #pragma mark- receive alarm
