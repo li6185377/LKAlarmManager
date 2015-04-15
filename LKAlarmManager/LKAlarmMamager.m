@@ -29,6 +29,7 @@
     });
     return manager;
 }
+#pragma mark- base
 - (instancetype)init
 {
     self = [super init];
@@ -47,15 +48,37 @@
     }
     return self;
 }
+-(void)registDelegateWithClass:(Class<LKAlarmMamagerDelegate>)clazz
+{
+    LKAlarmDelegateObject* obj =[LKAlarmDelegateObject new];
+    obj.clazz = clazz;
+    [_registDelegates addObject:obj];
+}
+-(void)registDelegateWithObject:(id<LKAlarmMamagerDelegate>)delegate
+{
+    LKAlarmDelegateObject* obj =[LKAlarmDelegateObject new];
+    obj.delegate = delegate;
+    [_registDelegates addObject:obj];
+}
+
+
+-(NSArray *)allEvents
+{
+    return [LKAlarmEvent searchWithWhere:nil orderBy:@"eventId desc" offset:0 count:0];
+}
+-(NSArray *)allNoReceiveEvents
+{
+    NSMutableArray* events = [LKAlarmEvent searchWithWhere:[NSString stringWithFormat:@"startDate > '%@'",[LKDBUtils stringWithDate:[NSDate date]]] orderBy:@"eventId" offset:0 count:0];
+    return events;
+}
+#pragma mark- check alarm event status
 -(void)checkLocalNotifyEvent
 {
-    __weak LKAlarmMamager* wself = self;
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        __strong LKAlarmMamager* sself = wself;
-        if([sself.checkLocalNotifyLock tryLock])
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_global_queue(0,0), ^{
+        if([self.checkLocalNotifyLock tryLock])
         {
-            [sself checkLocalNotifyEvent_async];
-            [sself.checkLocalNotifyLock unlock];
+            [self checkLocalNotifyEvent_async];
+            [self.checkLocalNotifyLock unlock];
         }
     });
 }
@@ -68,12 +91,34 @@
     }
 }
 
+
+-(void)checkNeedCallbackNotifyEvent
+{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_global_queue(0, 0), ^{
+        [self checkNeedCallbackNotifyEvent_async];
+    });
+}
+-(void)checkNeedCallbackNotifyEvent_async
+{
+    NSString* where = [NSString stringWithFormat:@"startDate<='%@' and alermDidCallbacked=0",[LKDBUtils stringWithDate:[NSDate date]]];
+    NSArray* array = [LKAlarmEvent searchWithWhere:where orderBy:@"startDate" offset:0 count:0];
+    for (LKAlarmEvent* event in array)
+    {
+        [self sendReceveEvent:event];
+    }
+}
+
+#pragma mark- receive alarm
 -(void)didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     UILocalNotification *localNotify = launchOptions[UIApplicationLaunchOptionsLocalNotificationKey];
     if (localNotify)
     {
         [self didReceiveLocalNotification:localNotify];
+    }
+    else
+    {
+        [self checkNeedCallbackNotifyEvent];
     }
 }
 -(void)didReceiveLocalNotification:(UILocalNotification *)notification
@@ -103,7 +148,21 @@
         }
     }
 }
+
 -(void)sendReceveEvent:(LKAlarmEvent*)event
+{
+    if([NSThread isMainThread])
+    {
+        [self sendReceveEvent_mainThread:event];
+    }
+    else
+    {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self sendReceveEvent_mainThread:event];
+        });
+    }
+}
+-(void)sendReceveEvent_mainThread:(LKAlarmEvent*)event
 {
     for (LKAlarmDelegateObject* obj in _registDelegates)
     {
@@ -116,8 +175,14 @@
             [obj.clazz lk_receiveAlarmEvent:event];
         }
     }
+    [event setValue:@YES forKey:@"alermDidCallbacked"];
+    [LKAlarmEvent updateToDBWithSet:@"alermDidCallbacked=1" where:@"eventId=%ld",event.eventId];
+    
     [self checkLocalNotifyEvent];
 }
+
+
+#pragma mark- add alarm
 -(void)addAlarmEvent:(LKAlarmEvent *)event
 {
     [self addAlarmEvent:event callback:nil];
@@ -333,29 +398,7 @@
     [event saveToDB];
 }
 
--(void)registDelegateWithClass:(Class<LKAlarmMamagerDelegate>)clazz
-{
-    LKAlarmDelegateObject* obj =[LKAlarmDelegateObject new];
-    obj.clazz = clazz;
-    [_registDelegates addObject:obj];
-}
--(void)registDelegateWithObject:(id<LKAlarmMamagerDelegate>)delegate
-{
-    LKAlarmDelegateObject* obj =[LKAlarmDelegateObject new];
-    obj.delegate = delegate;
-    [_registDelegates addObject:obj];
-}
-
-
--(NSArray *)allEvents
-{
-    return [LKAlarmEvent searchWithWhere:nil orderBy:@"eventId desc" offset:0 count:0];
-}
--(NSArray *)allNoReceiveEvents
-{
-    NSMutableArray* events = [LKAlarmEvent searchWithWhere:[NSString stringWithFormat:@"startDate > '%@'",[LKDBUtils stringWithDate:[NSDate date]]] orderBy:@"eventId" offset:0 count:0];
-    return events;
-}
+#pragma mark- delete 
 -(void)deleteAlarmEvent:(LKAlarmEvent *)event
 {
     if(event.isJoinedCalendar)

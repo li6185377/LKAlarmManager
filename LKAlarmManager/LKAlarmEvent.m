@@ -22,6 +22,11 @@
 {
     _eventId = eventId;
 }
+-(void)setAlermDidCallbacked:(BOOL)alermDidCallbacked
+{
+    _alermDidCallbacked = alermDidCallbacked;
+}
+
 +(NSString *)getPrimaryKey
 {
     return @"eventId";

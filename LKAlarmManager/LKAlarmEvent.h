@@ -41,6 +41,9 @@ typedef NS_ENUM(NSUInteger, LKAlarmRepeatType) {
 ///时区
 @property(strong,nonatomic) NSString *timeZoneName;
 
+///是否发送过回调  如果没法送过回调 应用进来时间到的话  会自动触发
+@property(assign,readonly,nonatomic) BOOL alermDidCallbacked;
+
 ///重复模式
 @property LKAlarmRepeatType repeatType;
 
