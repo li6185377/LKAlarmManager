@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 Jianghuai Li. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import <LKDBHelper.h>
 
 typedef NS_ENUM(NSUInteger, LKAlarmRepeatType) {
@@ -55,6 +55,7 @@ typedef NS_ENUM(NSUInteger, LKAlarmRepeatType) {
 ///是否加入到本地推送当中
 @property(assign,readonly,nonatomic) BOOL isJoinedLocalNotify;
 
+@property(copy,nonatomic)void(^onCreatingLocalNotification)(UILocalNotification* localNotification);
 
 ///是否加入到日历当中
 @property(assign,readonly,nonatomic) BOOL isJoinedCalendar;

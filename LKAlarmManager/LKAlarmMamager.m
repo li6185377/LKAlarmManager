@@ -407,7 +407,10 @@
     notify.alertBody = event.title;
     notify.repeatInterval = (NSCalendarUnit)event.repeatType;
     notify.userInfo = @{@"lk_alarm_id":@(event.eventId)};
-    
+    if(event.onCreatingLocalNotification)
+    {
+        event.onCreatingLocalNotification(notify);
+    }
     [[UIApplication sharedApplication] scheduleLocalNotification:notify];
     
     [event setValue:@YES forKey:@"isJoinedLocalNotify"];

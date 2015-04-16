@@ -18,6 +18,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    ///重置为0
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    
     [[LKAlarmMamager shareManager] didFinishLaunchingWithOptions:launchOptions];
     
     ///注册下回调
@@ -30,6 +33,12 @@
     notifyEvent.isNeedJoinLocalNotify = YES;
     ///20秒后提醒我
     notifyEvent.startDate = [NSDate dateWithTimeIntervalSinceNow:20];
+    
+    ///增加推送声音 和 角标
+    [notifyEvent setOnCreatingLocalNotification:^(UILocalNotification * localNotification) {
+        localNotification.soundName = UILocalNotificationDefaultSoundName;
+        localNotification.applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber + 1;
+    }];
     
     [[LKAlarmMamager shareManager] addAlarmEvent:notifyEvent];
     
